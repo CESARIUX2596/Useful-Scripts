@@ -10,12 +10,13 @@ import sys
 
 
 def main():
-    exits = ['q','quit','exit','break']
+    exits = ['q', 'quit', 'exit', 'break']
     print('Note: To close the app while video running press the ESC key in your keyboard')
     if len(sys.argv) == 1:
         valid = False
         while(valid == False):
-            print('Type {}, {}, {} or {} to exit in device seleciton'.format(exits[0],exits[1],exits[2],exits[3]))
+            print('Type {}, {}, {} or {} to exit in device seleciton'.format(
+                exits[0], exits[1], exits[2], exits[3]))
             print('Select your input device:')
             print('[0] Build in Camera\n[1]External Video Capture 1\n[2]External Video Capture 2\n[3]External Video Capture 3')
 
@@ -27,15 +28,15 @@ def main():
                 selected_device = int(user_input)
                 if selected_device >= 0 and selected_device < 4:
                     ok = input('You selected {} as your device, is that ok? Yes or No: \n'.format(
-                    selected_device))
-                if (ok == 'y' or ok == 'yes' or ok == 'Y' or ok == 'YES' or ok == 'Yes'):
-                    valid = True
+                        selected_device))
+                    if (ok == 'y' or ok == 'yes' or ok == 'Y' or ok == 'YES' or ok == 'Yes'):
+                        valid = True
+                else:
+                    print('Selection out of bounds\n')
 
             except:
                 print('Select a valid device')
-            
-            else:
-                print('Selection out of bounds\n')
+
     else:
         selected_device = int(sys.argv[1])
 
@@ -48,7 +49,7 @@ def main():
         ret, frame = capture.read()
 
         cv2.imshow('video', frame)
-    
+
         if cv2.waitKey(1) == 27:
             break
 
