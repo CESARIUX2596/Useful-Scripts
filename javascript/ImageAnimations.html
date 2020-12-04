@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    .grid-container{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    .grid-item{
+        text-align: center;
+    }
+
+    #imageRight {
+        position: relative;
+        text-align: right;
+    }
+    #imageLeft {
+        position: relative;
+        text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-container">
+    <div id="left" class="grid-item">
+        <img id="imageLeft" src="https://js.cx/clipart/train.gif">
+    </div>
+    <div id="center" class="grid-item">
+        <h2>Center :D</h2>
+    </div>
+    <div id="right" class="grid-item">
+        <img id="imageRight" src="https://js.cx/clipart/train.gif">
+    </div>
+  </div>
+
+  <script>
+    function makeLeftTransparent(){
+        let start = Date.now();
+        let timer = setInterval(function(){
+            let timePassed = Date.now() - start;
+            imageLeft.style.left = (timePassed / 99) * -1 + '%';
+            imageLeft.style.opacity = (1000 - timePassed) / 1000  ;
+            // console.log((1000 - timePassed) / 1000 );
+            if (timePassed > 1000) clearInterval(timer);
+        }, 20)
+    }
+    function makeRightTransparent(){
+        let start = Date.now();
+        let timer = setInterval(function(){
+            let timePassed = Date.now() - start;
+            imageRight.style.right = (timePassed / 99) * -1 + '%';
+            imageRight.style.opacity = (1000 - timePassed) / 1000  ;
+            // console.log((1000 - timePassed) / 1000 );
+            if (timePassed > 1000) clearInterval(timer);
+        }, 20)
+    }
+    // Move left to center
+    imageLeft.onload = function() {
+        let start = Date.now();
+        let timer = setInterval(function() {
+            let timePassed = Date.now() - start;
+            imageLeft.style.left = timePassed / 99 + '%';
+            if (timePassed > 1000)
+            {
+                clearInterval(timer);
+                makeLeftTransparent();                
+            } 
+            
+        }, 20);
+    }
+    // Move right to center
+    imageRight.onload = function() {
+        let start = Date.now();
+        let timer = setInterval(function() {
+            let timePassed = Date.now() - start;
+            imageRight.style.right = timePassed / 99 + '%';
+            if (timePassed > 1000)
+            {
+                clearInterval(timer);
+                makeRightTransparent();                
+            } 
+        }, 20);
+    }
+    
+  </script>
+
+
+</body>
+
+</html>
