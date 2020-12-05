@@ -2,89 +2,117 @@
 <html>
 
 <head>
-  <style>
-    .grid-container{
-        display: grid;
-        grid-template-columns: auto auto auto;
-    }
-    .grid-item{
-        text-align: center;
-    }
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
 
-    #imageRight {
-        position: relative;
-        text-align: right;
-    }
-    #imageLeft {
-        position: relative;
-        text-align: left;
-    }
-  </style>
+        .grid-item {
+            text-align: center;
+        }
+
+        #imageRight {
+            position: relative;
+            text-align: right;
+        }
+
+        #imageLeft {
+            position: relative;
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="grid-container">
-    <div id="left" class="grid-item">
-        <img id="imageLeft" src="https://js.cx/clipart/train.gif">
-    </div>
-    <div id="center" class="grid-item">
-        <h2>Center :D</h2>
-    </div>
-    <div id="right" class="grid-item">
-        <img id="imageRight" src="https://js.cx/clipart/train.gif">
-    </div>
-  </div>
-
-  <script>
-    function makeLeftTransparent(){
-        let start = Date.now();
-        let timer = setInterval(function(){
-            let timePassed = Date.now() - start;
-            imageLeft.style.left = (timePassed / 99) * -1 + '%';
-            imageLeft.style.opacity = (1000 - timePassed) / 1000  ;
-            // console.log((1000 - timePassed) / 1000 );
-            if (timePassed > 1000) clearInterval(timer);
-        }, 20)
-    }
-    function makeRightTransparent(){
-        let start = Date.now();
-        let timer = setInterval(function(){
-            let timePassed = Date.now() - start;
-            imageRight.style.right = (timePassed / 99) * -1 + '%';
-            imageRight.style.opacity = (1000 - timePassed) / 1000  ;
-            // console.log((1000 - timePassed) / 1000 );
-            if (timePassed > 1000) clearInterval(timer);
-        }, 20)
-    }
-    // Move left to center
-    imageLeft.onload = function() {
-        let start = Date.now();
-        let timer = setInterval(function() {
-            let timePassed = Date.now() - start;
-            imageLeft.style.left = timePassed / 99 + '%';
-            if (timePassed > 1000)
-            {
-                clearInterval(timer);
-                makeLeftTransparent();                
-            } 
+    <div class="grid-container">
+        <div id="left" class="grid-item">
+            <!-- <img id="imageLeft" src="https://js.cx/clipart/train.gif"> -->
+            <img id="imageLeft">
+        </div>
+        <div id="center" class="grid-item">
+            <h2  id="textCenter"></h2>
+        </div>
+        <div id="right" class="grid-item">
+            <!-- <img id="imageRight" src="https://js.cx/clipart/train.gif"> -->
+            <img id="imageRight">
             
-        }, 20);
-    }
-    // Move right to center
-    imageRight.onload = function() {
-        let start = Date.now();
-        let timer = setInterval(function() {
-            let timePassed = Date.now() - start;
-            imageRight.style.right = timePassed / 99 + '%';
-            if (timePassed > 1000)
-            {
-                clearInterval(timer);
-                makeRightTransparent();                
-            } 
-        }, 20);
-    }
-    
-  </script>
+        </div>
+    </div>
+
+    <script>
+        // Image arrays
+        var leftImageArray = new Array();
+        var rightImageArray = new Array();
+        var centerText = new Array();
+
+        leftImageArray[0] = new Image();
+        leftImageArray[0].src="https://js.cx/clipart/train.gif";
+
+
+        rightImageArray[0] = new Image();
+        rightImageArray[0].src="https://js.cx/clipart/train.gif";
+        
+        centerText[0] = 'hey :D';
+
+
+        
+        function animationIn(imgLeft,centerText, imgRight){
+            // Load Images into the img tags
+            document.getElementById("imageLeft").src = imgLeft.src;
+            document.getElementById("textCenter").innerText = centerText;
+            document.getElementById("imageRight").src = imgRight.src;
+            imageLeft.style.opacity = 0;
+            textCenter.style.opacity = 0;
+            imageRight.style.opacity = 0;
+            let start = Date.now();
+            let timer = setInterval(function() {
+                let timePassed = Date.now() - start;
+                // Move image from left to center.
+                imageLeft.style.left = timePassed / 99 + '%';
+                imageLeft.style.opacity = timePassed / 1000;
+                //Change opacity of Center Text
+                textCenter.style.opacity = timePassed / 1000;
+                // Move image from right to center.
+                imageRight.style.right = timePassed / 99 + '%';
+                imageRight.style.opacity = timePassed / 1000;
+                if (timePassed > 1000) clearInterval(timer);
+            }, 20)
+        }
+        function animationOut(){
+            let start = Date.now();
+            let timer = setInterval(function() {
+                let timePassed = Date.now() - start;
+                // Move left image 
+                imageLeft.style.left = (timePassed / 99) * -1 + '%';
+                imageLeft.style.opacity = (1000 - timePassed) / 1000;
+                // change Center Text
+                textCenter.style.opacity = (1000 - timePassed) / 1000
+                // Move right image
+                imageRight.style.right = (timePassed / 99) * -1 + '%';
+                imageRight.style.opacity = (1000 - timePassed) / 1000;
+                if (timePassed > 1000) clearInterval(timer);
+            })
+        }
+
+        function callStuff(){
+            animationIn(leftImageArray[0],centerText[0],rightImageArray[0]);
+            let start = Date.now();
+            let timer = setInterval(function(){
+                let timePassed = Date.now() - start;
+
+                if (timePassed > 20000) {
+                    clearInterval(timer);
+                    animationOut();
+                    // console.log('Taco')
+                };
+            })
+
+        }
+        callStuff();
+        
+
+    </script>
 
 
 </body>
