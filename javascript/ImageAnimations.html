@@ -31,12 +31,12 @@
             <img id="imageLeft">
         </div>
         <div id="center" class="grid-item">
-            <h2  id="textCenter"></h2>
+            <h2 id="textCenter"></h2>
         </div>
         <div id="right" class="grid-item">
             <!-- <img id="imageRight" src="https://js.cx/clipart/train.gif"> -->
             <img id="imageRight">
-            
+
         </div>
     </div>
 
@@ -47,17 +47,26 @@
         var centerText = new Array();
 
         leftImageArray[0] = new Image();
-        leftImageArray[0].src="https://js.cx/clipart/train.gif";
-
+        leftImageArray[0].src = "https://js.cx/clipart/train.gif";
+        leftImageArray[1] = new Image();
+        leftImageArray[1].src = "https://cdn.pixabay.com/photo/2012/04/03/14/44/soda-25188_960_720.png";
+        leftImageArray[2] = new Image();
+        leftImageArray[2].src = "https://cdn.pixabay.com/photo/2017/01/31/01/59/music-2022796_960_720.png";
 
         rightImageArray[0] = new Image();
-        rightImageArray[0].src="https://js.cx/clipart/train.gif";
-        
-        centerText[0] = 'hey :D';
+        rightImageArray[0].src = "https://js.cx/clipart/train.gif";
+        rightImageArray[1] = new Image();
+        rightImageArray[1].src = "https://cdn.pixabay.com/photo/2012/04/03/14/44/soda-25188_960_720.png";
+        rightImageArray[2] = new Image();
+        rightImageArray[2].src = "https://cdn.pixabay.com/photo/2017/01/31/01/59/music-2022796_960_720.png";
+
+        centerText[0] = 'Trains :D';
+        centerText[1] = 'Soda Cans';
+        centerText[2] = 'Guitars';
 
 
-        
-        function animationIn(imgLeft,centerText, imgRight){
+
+        function animationIn(imgLeft, centerText, imgRight) {
             // Load Images into the img tags
             document.getElementById("imageLeft").src = imgLeft.src;
             document.getElementById("textCenter").innerText = centerText;
@@ -66,7 +75,7 @@
             textCenter.style.opacity = 0;
             imageRight.style.opacity = 0;
             let start = Date.now();
-            let timer = setInterval(function() {
+            let timer = setInterval(function () {
                 let timePassed = Date.now() - start;
                 // Move image from left to center.
                 imageLeft.style.left = timePassed / 99 + '%';
@@ -79,9 +88,9 @@
                 if (timePassed > 1000) clearInterval(timer);
             }, 20)
         }
-        function animationOut(){
+        function animationOut() {
             let start = Date.now();
-            let timer = setInterval(function() {
+            let timer = setInterval(function () {
                 let timePassed = Date.now() - start;
                 // Move left image 
                 imageLeft.style.left = (timePassed / 99) * -1 + '%';
@@ -94,14 +103,19 @@
                 if (timePassed > 1000) clearInterval(timer);
             })
         }
-
-        function callStuff(){
-            animationIn(leftImageArray[0],centerText[0],rightImageArray[0]);
+        function test(){
+            console.log("Taco");
+        }
+        function callStuff(arrL, arrC, arrR, counter) {
+        // function callStuff(value) {
+            // let i = counter%arrL.lenght+1;
+            let i = counter%4;
+            animationIn(arrL[i], arrC[i], arrR[i]);
             let start = Date.now();
             let timer = setInterval(function(){
                 let timePassed = Date.now() - start;
 
-                if (timePassed > 20000) {
+                if (timePassed > 5000) {
                     clearInterval(timer);
                     animationOut();
                     // console.log('Taco')
@@ -109,8 +123,23 @@
             })
 
         }
-        callStuff();
-        
+        // Call Function indefinelty times while(True) does not work in browers :(
+        let counter = 0;
+        window.setInterval(function() { callStuff(leftImageArray, centerText, rightImageArray, counter++); }, 7000 );
+        /*
+            TODO: 
+            Solve bug that returns error in console when finishes full iteration
+            
+            Every time it finishes a full iteration of the array console returns this errors,
+            *ERROR IN BROWSER CONSOLE*
+            Curent error
+            Uncaught TypeError: imgLeft is undefined
+            animationIn file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:71
+            callStuff file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:113
+            <anonymous> file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:128
+            setInterval handler* file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:128
+            
+        */ 
 
     </script>
 
