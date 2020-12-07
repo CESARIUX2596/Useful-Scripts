@@ -27,17 +27,16 @@
 <body>
     <div class="grid-container">
         <div id="left" class="grid-item">
-            <!-- <img id="imageLeft" src="https://js.cx/clipart/train.gif"> -->
             <img id="imageLeft">
         </div>
         <div id="center" class="grid-item">
             <h2 id="textCenter"></h2>
         </div>
         <div id="right" class="grid-item">
-            <!-- <img id="imageRight" src="https://js.cx/clipart/train.gif"> -->
             <img id="imageRight">
 
         </div>
+
     </div>
 
     <script>
@@ -67,8 +66,6 @@
         centerText[0] = 'Trains :D';
         centerText[1] = 'Soda Cans';
         centerText[2] = 'Guitars';
-
-
 
         function animationIn(imgLeft, centerText, imgRight) {
             // Load Images into the img tags
@@ -107,54 +104,32 @@
                 if (timePassed > 1000) clearInterval(timer);
             })
         }
-        function test(){
-            console.log("Taco");
-        }
+
         function callStuff(arrL, arrC, arrR, counter, animTime) {
-        // function callStuff(value) {
-            let size = arrL.length
-            console.log(size)
-            let i = counter%arrL.length;
-            // let i = counter%4;
+            let size = arrL.length;
+            let i = counter % arrL.length;
             animationIn(arrL[i], arrC[i], arrR[i]);
             let start = Date.now();
-            let timer = setInterval(function(){
+            let timer = setInterval(function () {
                 let timePassed = Date.now() - start;
 
                 if (timePassed > animTime) {
                     clearInterval(timer);
                     animationOut();
-                    // console.log('Taco')
                 };
             })
 
         }
-        // Call Function indefinelty times while(True) does not work in browers :(
-        
+
         let counter = 1;
         // Seconds between each change
         let intervalTime = 15;
         intervalTime = intervalTime * 1000;
         // call animation at index 0;
         callStuff(leftImageArray, centerText, rightImageArray, 0, intervalTime);
-        window.setInterval(function() { callStuff(leftImageArray, centerText, rightImageArray, counter++, intervalTime); }, intervalTime+1000 );
-        /*
-            TODO: 
-            Solve bug that returns error in console when finishes full iteration
-            
-            Every time it finishes a full iteration of the array console returns this errors,
-            *ERROR IN BROWSER CONSOLE*
-            Curent error
-            Uncaught TypeError: imgLeft is undefined
-            animationIn file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:71
-            callStuff file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:113
-            <anonymous> file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:128
-            setInterval handler* file:///D:/Stuff/Documents/Repos/Useful-Scripts/javascript/ImageAnimations.html:128
-            
-        */ 
+        window.setInterval(function () { callStuff(leftImageArray, centerText, rightImageArray, counter++, intervalTime); }, intervalTime + 1000);
 
     </script>
-
 
 </body>
 
