@@ -45,7 +45,9 @@
         var leftImageArray = new Array();
         var rightImageArray = new Array();
         var centerText = new Array();
+        // The 3 arrays NEED to have the same size, just append text and image,
 
+        // Left side
         leftImageArray[0] = new Image();
         leftImageArray[0].src = "https://js.cx/clipart/train.gif";
         leftImageArray[1] = new Image();
@@ -53,6 +55,7 @@
         leftImageArray[2] = new Image();
         leftImageArray[2].src = "https://cdn.pixabay.com/photo/2017/01/31/01/59/music-2022796_960_720.png";
 
+        // Right side
         rightImageArray[0] = new Image();
         rightImageArray[0].src = "https://js.cx/clipart/train.gif";
         rightImageArray[1] = new Image();
@@ -60,6 +63,7 @@
         rightImageArray[2] = new Image();
         rightImageArray[2].src = "https://cdn.pixabay.com/photo/2017/01/31/01/59/music-2022796_960_720.png";
 
+        // Center (Text)
         centerText[0] = 'Trains :D';
         centerText[1] = 'Soda Cans';
         centerText[2] = 'Guitars';
@@ -108,8 +112,10 @@
         }
         function callStuff(arrL, arrC, arrR, counter) {
         // function callStuff(value) {
-            // let i = counter%arrL.lenght+1;
-            let i = counter%4;
+            let size = arrL.length
+            console.log(size)
+            let i = counter%arrL.length;
+            // let i = counter%4;
             animationIn(arrL[i], arrC[i], arrR[i]);
             let start = Date.now();
             let timer = setInterval(function(){
