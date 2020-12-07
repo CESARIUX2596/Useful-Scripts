@@ -110,7 +110,7 @@
         function test(){
             console.log("Taco");
         }
-        function callStuff(arrL, arrC, arrR, counter) {
+        function callStuff(arrL, arrC, arrR, counter, animTime) {
         // function callStuff(value) {
             let size = arrL.length
             console.log(size)
@@ -121,7 +121,7 @@
             let timer = setInterval(function(){
                 let timePassed = Date.now() - start;
 
-                if (timePassed > 5000) {
+                if (timePassed > animTime) {
                     clearInterval(timer);
                     animationOut();
                     // console.log('Taco')
@@ -130,9 +130,14 @@
 
         }
         // Call Function indefinelty times while(True) does not work in browers :(
-        callStuff(leftImageArray, centerText, rightImageArray, 0);
+        
         let counter = 1;
-        window.setInterval(function() { callStuff(leftImageArray, centerText, rightImageArray, counter++); }, 7000 );
+        // Seconds between each change
+        let intervalTime = 15;
+        intervalTime = intervalTime * 1000;
+        // call animation at index 0;
+        callStuff(leftImageArray, centerText, rightImageArray, 0, intervalTime);
+        window.setInterval(function() { callStuff(leftImageArray, centerText, rightImageArray, counter++, intervalTime); }, intervalTime+1000 );
         /*
             TODO: 
             Solve bug that returns error in console when finishes full iteration
