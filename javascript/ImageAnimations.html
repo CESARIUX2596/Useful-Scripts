@@ -124,7 +124,8 @@
 
         }
         // Call Function indefinelty times while(True) does not work in browers :(
-        let counter = 0;
+        callStuff(leftImageArray, centerText, rightImageArray, 0);
+        let counter = 1;
         window.setInterval(function() { callStuff(leftImageArray, centerText, rightImageArray, counter++); }, 7000 );
         /*
             TODO: 
