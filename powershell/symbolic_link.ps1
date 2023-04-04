@@ -1,1 +1,1 @@
-New-Item -ItemType SymbolicLink -Path path/to/destination/model.ckpt -Target <path/to/model.ckpt>
+New-Item -ItemType SymbolicLink -Path path/to/destination/model.ckpt -Target Y:/Models/Stable Diffusion/model.ckpt>
