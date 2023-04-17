@@ -1,0 +1,168 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "profiles": {
+        "defaults": {
+            "useAtlasEngine": true,
+            "font": {
+                "face": "MesloLGM NF"
+            }
+        },
+        "list": [
+            {
+                "backgroundImage": "C:\\Users\\cesar\\Pictures\\wt_images\\scarle\\Scarle.jpg",
+                "backgroundImageOpacity": 0.15,
+                "backgroundImageStretchMode": "uniform",
+                "colorScheme": "Scarle Yonaguni",
+                "cursorShape": "underscore",
+                "experimental.retroTerminalEffect": true,
+                "font": {
+                    "face": "MesloLGM NF"
+                },
+                "guid": "{UUID CMD}",
+                "hidden": false,
+                "icon": "C:\\Users\\cesar\\Pictures\\wt_images\\scarle\\scarle_1.ico",
+                "name": "Command Prompt",
+                "startingDirectory": null
+            },
+            {
+                "cursorShape": "doubleUnderscore",
+                "guid": "{UUID Azure}",
+                "hidden": true,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure",
+                "useAcrylic": true
+            },
+            {
+                "guid": "{UUID VS CMD}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{UUID VS Powershell}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{UUID VS CMD}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{UUID VS Powershell}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "backgroundImage": "C:\\Users\\cesar\\Pictures\\wt_images\\scarle\\Scarle.jpg",
+                "backgroundImageOpacity": 0.15,
+                "colorScheme": "Scarle Yonaguni",
+                "guid": "{UUID Powershell}",
+                "hidden": false,
+                "icon": "C:\\Users\\cesar\\Pictures\\wt_images\\scarle\\scarle_1.ico",
+                "name": "Windows PowerShell"
+            },
+            {
+                "backgroundImage": "C:\\Users\\cesar\\Pictures\\wt_images\\scarle\\Verde.jpg",
+                "backgroundImageOpacity": 0.23,
+                "colorScheme": "Verde",
+                "commandline": "ubuntu2204.exe",
+                "cursorShape": "filledBox",
+                "experimental.retroTerminalEffect": false,
+                "font": {
+                    "face": "MesloLGM NF",
+                    "size": 13.0
+                },
+                "guid": "{UUID Ubuntu WSL}",
+                "hidden": false,
+                "icon": "C:\\Users\\cesar\\Pictures\\wt_images\\scarle\\Verde.jpg",
+                "name": "Ubuntu 22.04.2 LTS",
+                "opacity": 100,
+                "tabTitle": "Ubuntu 22.04.2 LTS"
+            }
+        ]
+    },
+    "schemes": [
+        {
+            "background": "#24364B",
+            "black": "#2C3F58",
+            "blue": "#457ABE",
+            "brightBlack": "#336889",
+            "brightBlue": "#34A6DA",
+            "brightCyan": "#42C3AE",
+            "brightGreen": "#31D07B",
+            "brightPurple": "#AE6BDC",
+            "brightRed": "#DD5944",
+            "brightWhite": "#D5D5D5",
+            "brightYellow": "#E7D84B",
+            "cursorColor": "#D5D5D5",
+            "cyan": "#35A08F",
+            "foreground": "#31D07B",
+            "green": "#014130",
+            "name": "Verde",
+            "purple": "#8A5EDC",
+            "red": "#BE2D26",
+            "selectionBackground": "#5F217A",
+            "white": "#23D183",
+            "yellow": "#DB8E27"
+        },
+        {
+            "background": "#1C153D",
+            "black": "#101116",
+            "blue": "#0271B6",
+            "brightBlack": "#686868",
+            "brightBlue": "#6871FF",
+            "brightCyan": "#60FDFF",
+            "brightGreen": "#5FFA68",
+            "brightPurple": "#BD35EC",
+            "brightRed": "#FF6E67",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFFC67",
+            "cursorColor": "#76FF9F",
+            "cyan": "#00C5C7",
+            "foreground": "#E41951",
+            "green": "#00DC84",
+            "name": "Scarle Yonaguni",
+            "purple": "#CA30C7",
+            "red": "#FF0051",
+            "selectionBackground": "#C1DEFF",
+            "white": "#C7C7C7",
+            "yellow": "#FAF945"
+        }
+    ],
+    "theme": "dark",
+    "themes": [],
+    "useAcrylicInTabRow": true
+}
