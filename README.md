@@ -1,3 +1,3 @@
-# Useful_Scripts
+# Useful Scripts
 
-This repo contains scripts that I use sometimes and I dont want to rewrite them each time I need to use them...
+This repository contains a collection of scripts and configuration files that have proven to be useful in managing and configuring different programs on multiple devices.
